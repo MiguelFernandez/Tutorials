@@ -1,9 +1,8 @@
 # HTML to PDF conversion using Azure Functions
 
-## Proof of concept function app using the DinkToPdf library
+## Proof of concept HTML to PDF conversion function app using the DinkToPdf library
 
->
-    > This solution works with a function app in an app service plan. For a function app in a consumption plan the text rendering doesn't work and just displays black squares in place of the text
+>Note - This solution works with a function app in an app service plan. For a function app in a consumption plan the text rendering doesn't work and just displays black squares in place of the text
 
 ## Create the function app locally in Visual Studio
 
@@ -142,18 +141,22 @@
 1. You should see logs showing that the function started and executed successfully
     ![Console window logs](Images/screen11.png)
     Copy the URL and paste it into your browser and press enter. This will trigger your function to start.
-1. However in your browser window you will see an error:
+1. However, the execution won't be successful. In your browser window you will see this error:
     >   Unable to load DLL 'libwkhtmltox' or one of its dependencies: The specified module could not be found. (0x8007007E)
 
     ![DLL error](Images/screen12.png)
     This is because we are missing the libwkhtmltox library. In our case we will downlaod the 64 bit Windows dll found here <https://github.com/rdvojmoc/DinkToPdf/tree/master/v0.12.4/64%20bit>
 1. Once the file is downloaded copy it to your root project folder
+
     ![DLL in project folder](Images/screen14.png)
 1. You should see the file in the project explorer window in Visual Studio. In the file's properties change the Copy To Output Directory option to Copy always
+
     ![Copy always option](Images/screen15.png)
 1. Rebuild the solution and start debugging again. Navigate back to the local host URL to trigger the function again. This time in the corresponding local folder you should see the file was created
+
     ![PDF file](Images/screen33.png)
 1. Opening the file shows its contents are rendered as expected
+
     ![PDF file contents](Images/screen16.png)
 
 ## Publish the function app to Azure
