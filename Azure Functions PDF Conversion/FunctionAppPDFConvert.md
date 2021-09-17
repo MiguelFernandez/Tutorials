@@ -140,7 +140,7 @@
     Copy the URL and paste it into your browser and press enter. This will trigger your function to start.
 1. You should see logs showing that the function started and executed successfully
     ![Console window logs](Images/screen11.png)
-    Copy the URL and paste it into your browser and press enter. This will trigger your function to start.
+
 1. However, the execution won't be successful. In your browser window you will see this error:
     >   Unable to load DLL 'libwkhtmltox' or one of its dependencies: The specified module could not be found. (0x8007007E)
 
